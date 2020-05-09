@@ -4,7 +4,7 @@ My first project in backend development. Creating server with API, node.js, expr
 
 ## v0.0.2 version 
 
-[**link to this project on github pages**](https://leannalight.github.io/sprint-12-mesto/)
+[**link to this project on github pages**](https://leannalight.github.io/sprint-12-mesto/) 
 
 In this project I learned to work with Express and Node.js.
 
