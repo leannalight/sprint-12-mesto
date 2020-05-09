@@ -14,7 +14,7 @@
     "nodemon": "^2.0.3"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon --inspect app.js",
     "dev": " npx nodemon app.js"
   },
   "repository": {
