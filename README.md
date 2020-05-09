@@ -2,7 +2,7 @@
 
 My first project in backend development. Creating server with API, node.js, express.js. 
 
-## v0.0.1 version 
+## v0.0.2 version 
 
 [**link to this project on github pages**](https://leannalight.github.io/sprint-12-mesto/)
 
