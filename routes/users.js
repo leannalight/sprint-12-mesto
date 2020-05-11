@@ -18,7 +18,7 @@ router.get('/users', (req, res) => {
   })
 });
 
-router.all('/users/:_id', (req, res) => {
+router.get('/users/:_id', (req, res) => {
   getUsersPromise()
     .then((users) => {
       const userFind = users.find(item => item._id === req.params._id);
@@ -30,7 +30,7 @@ router.all('/users/:_id', (req, res) => {
       }
       res.status(200).json(userFind);
     })
-  });
+});
 
 module.exports = router;
 
