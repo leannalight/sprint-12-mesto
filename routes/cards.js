@@ -11,7 +11,9 @@ const getCardsAsyncAwait = async () => {
 
     return JSON.parse(data);
   } catch (error) {
-    return console.error(error);
+      return res.status(500).json({
+        message: 'Запрашиваемый файл не найден'
+      });
   }
 }
 
