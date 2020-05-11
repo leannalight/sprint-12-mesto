@@ -1,35 +1,36 @@
-/* eslint-disable */
 const router = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 
-const getUsersPromise = () => {
+const getUsersAsyncAwait = async () => {
   const usersPath = path.join(__dirname, '../data/users.json');
 
-  return fs.promises
-      .readFile(usersPath, { encoding: 'utf8'})
-      .then((data) => JSON.parse(data));
+  try {
+    const data = await fs.promises
+        .readFile(usersPath, { encoding: 'utf8'})
+
+    return JSON.parse(data);
+  } catch (error) {
+  return console.error(error);
+  }
 }
 
-router.get('/users', (req, res) => {
-  getUsersPromise()
-  .then((users) => {
-    res.status(200).json(users);
-  })
+router.get('/users', async (req, res) => {
+  const users = await getUsersAsyncAwait();
+
+  res.status(200).json(users);
 });
 
-router.get('/users/:_id', (req, res) => {
-  getUsersPromise()
-    .then((users) => {
-      const userFind = users.find(item => item._id === req.params._id);
+router.get('/users/:_id', async (req, res) => {
 
+  const users = await getUsersAsyncAwait();
+  const userFind = users.find(item => item._id === req.params._id);
       if(!userFind) {
         return res.status(404).json({
           message: 'Нет пользователя с таким id'
         })
       }
       res.status(200).json(userFind);
-    })
 });
 
 module.exports = router;
