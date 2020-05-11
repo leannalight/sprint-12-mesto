@@ -2,7 +2,8 @@
 
 My first project in backend development. Creating server with API, node.js, express.js. 
 
-## v0.0.3 version 
+## v0.0.4 version 
+git tag -a v0.0.4 -m "my version v0.0.4"
 
 [**link to this project on github pages**](https://leannalight.github.io/sprint-12-mesto/) 
 
