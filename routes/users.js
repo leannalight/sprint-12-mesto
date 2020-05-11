@@ -1,6 +1,16 @@
 /* eslint-disable */
 const router = require('express').Router();
-const users = require('../data/users');
+const path = require('path');
+const fs = require('fs');
+
+//const users = require('../data/users');
+const users = () => {
+  const usersPath = path.join(__dirname, 'users.json');
+
+  return fs.promises
+      .readFile(usersPath, { encoding: 'utf8'})
+      .then((data) => JSON.parse(data));
+}
 
 router.get('/users', (req, res) => {
   res.status(200).json(users);
@@ -17,4 +27,5 @@ if (userFind) {
 });
 
 module.exports = router;
+
 
