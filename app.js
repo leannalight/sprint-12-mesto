@@ -1,7 +1,6 @@
 /* eslint-disable */
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
@@ -24,45 +23,3 @@ app.listen(PORT, () => {
 
 });
 
-
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
-
-const app = express();
-const port = 3000;
-
-/**
-
-/**
- * Метод получения json данных, исползующий Promise
- */
-const getTodoPromise = () => {
-  const todoPath = path.join(__dirname, 'todo.json');
-
-  return fs.promises
-      .readFile(todoPath, { encoding: 'utf8' })
-      .then((data) => JSON.parse(data));
-}
-
-/**
-
-/**
- * Получение конкретного todo с Promise нотацией
- */
-app.get('/todo/:id', (req, res) => {
-  getTodoPromise()
-    .then((todos) => {
-      const todo = todos.find(item => item.id === req.params.id);
-
-      if(!todo) {
-        return res.send({
-          error: "Нет такого todo"
-        })
-      }
-
-      res.send(todo);
-    })
-})
-
-app.listen(port);
