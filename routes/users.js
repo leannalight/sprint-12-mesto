@@ -3,8 +3,7 @@ const router = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 
-//const users = require('../data/users');
-const users = () => {
+const getUsersPromise = () => {
   const usersPath = path.join(__dirname, 'users.json');
 
   return fs.promises
@@ -13,19 +12,24 @@ const users = () => {
 }
 
 router.get('/users', (req, res) => {
+  const users = getUsersPromise();
+
   res.status(200).json(users);
 });
 
 router.all('/users/:_id', (req, res) => {
-const userReq = req.params._id;
-const userFind = users.find((m) => m._id === userReq);
-if (userFind) {
-  res.status(200).json(userFind);
-} else {
-  res.status(404).json({ message: 'Нет пользователя с таким id' })
-}
-});
+  getUsersPromise()
+    .then((users) => {
+      const userFind = users.find(item => item._id === req.params._id);
+
+      if(!userFind) {
+        return res.status(404).json({
+          message: 'Нет пользователя с таким id'
+        })
+      }
+      res.status(200).json(userFind);
+    })
+  });
 
 module.exports = router;
-
 
