@@ -9,6 +9,7 @@ async function readCardsData() {
     .readFile(cardsPath, { encoding: 'utf-8' });
   return JSON.parse(data);
   } catch (error) {
+    // eslit-disable-next-line no-console
     return console.error(error);
   }
 }

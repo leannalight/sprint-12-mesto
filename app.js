@@ -17,7 +17,7 @@ app.all('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-
+  // eslit-disable-next-line no-console
   console.log(`App listening at http://localhost:${PORT}`);
 
 });

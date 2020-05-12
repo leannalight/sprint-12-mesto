@@ -9,6 +9,7 @@ async function readUsersData() {
     .readFile(usersPath, { encoding: 'utf-8' });
   return JSON.parse(data);
   } catch (error) {
+    // eslit-disable-next-line no-console
     return console.error(error);
   }
 }
@@ -24,8 +25,10 @@ router.get('/users', (req, res) => {
   });
 });
 
+ // eslint-disable-next-line no-underscore-dangle
 router.get('/users/:_id', (req, res) => {
   readUsersData().then((data) => {
+     // eslint-disable-next-line no-underscore-dangle
     const userFind = data.find(item => item._id === req.params._id);
       if(!userFind) {
         return res.status(404).json({ message: 'Нет пользователя с таким id' });
