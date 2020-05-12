@@ -2,8 +2,8 @@
 
 My first project in backend development. Creating server with API, node.js, express.js. 
 
-## v0.0.4 version 
-git tag -a v0.0.4 -m "my version v0.0.4"
+## v0.0.5 version 
+git tag -a v0.0.5 -m "my version v0.0.5"
 
 [**link to this project on github pages**](https://leannalight.github.io/sprint-12-mesto/) 
 
@@ -28,6 +28,8 @@ Git
 9. If there is no user with the requested identifier, the API should return 404 response status and JSON: {"message": "There is no user with this id"};
 10. When requesting a non-existent address, the API should return 404 response status and JSON: {"message": "The requested resource was not found"}.
 
+- для получения путей к файлам с данными используется модуль path
+- при разных запросах сервер не падает
 
 ## Инструкция по установке:
 1. Для клонирования используйте git clone https://github.com/leannalight/sprint-12-mesto
@@ -40,3 +42,6 @@ Git
 8. В ответ на запрос GET localhost:3000/users/8340d0ec33270a25f2413b69, сервер вернёт JSON-объект пользователя с переданным после /users идентификатором;
 9. Если пользователя с запрошенным идентификатором нет, API должен возвращать 404 статус ответа и JSON: { "message": "Нет пользователя с таким id" };
 10. При запросе на несуществующий адрес, API должен возвращать 404 статус ответа и JSON: { "message": "Запрашиваемый ресурс не найден" }.
+
+- the path module is used to obtain paths to data files
+- the server does not crash at different requests 
