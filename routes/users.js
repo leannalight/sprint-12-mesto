@@ -11,9 +11,7 @@ const getUsersAsyncAwait = async () => {
 
     return JSON.parse(data);
   } catch (error) {
-      return res.status(500).json({
-        message: 'Запрашиваемый файл не найден'
-      });
+      return console.error(error);
   }
 }
 
