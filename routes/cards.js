@@ -17,7 +17,7 @@ router.get('/cards', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   readCardsData().then((data) => {
     if (data) {
-      res.status(200).json({ data });
+      res.status(200).json(data);
     } else {
       res.status(500).json({ message: 'Запрашиваемый файл не найден' })
     }
