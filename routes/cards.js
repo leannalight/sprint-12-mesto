@@ -6,10 +6,10 @@ async function readCardsData() {
   const cardsPath = path.join(__dirname, '../data/cards.json');
   try {
     const data = await fs.promises
-    .readFile(cardsPath, { encoding: 'utf-8' });
-  return JSON.parse(data);
+      .readFile(cardsPath, { encoding: 'utf-8' });
+    return JSON.parse(data);
   } catch (error) {
-    // eslit-disable-next-line no-console
+    // eslint-disable-next-line no-console
     return console.error(error);
   }
 }
@@ -20,7 +20,7 @@ router.get('/cards', (req, res) => {
     if (data) {
       res.status(200).json(data);
     } else {
-      res.status(500).json({ message: 'Запрашиваемый файл не найден' })
+      res.status(500).json({ message: 'Запрашиваемый файл не найден' });
     }
   });
 });
