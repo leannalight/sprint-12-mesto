@@ -1,6 +1,6 @@
 {
   "name": "sprint-12-mesto",
-  "version": "1.0.0",
+  "version": "0.0.6",
   "description": "creating server with API, node.js and express.js",
   "main": "app.js",
   "dependencies": {
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/leannalight/sprint-12-mesto.git"
   },
-  "author": "Anna Lee",
+  "author": "Anna Lee <annikkacloud@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/leannalight/sprint-12-mesto/issues"
