@@ -1,47 +1,39 @@
-# **sprint-12-mesto**
-
-My first project in backend development. Creating server with API, node.js, express.js. 
-
+# sprint-12-mesto
 ## v0.0.6 version 
-git tag -a v0.0.6 -m "my version v0.0.6"
+### Цель: изучение серверной разработки на Node.js и знакомство c веб-фреймворком Express. Создание своего сервера для проекта [Место](https://leannalight.github.io/Mesto-project-Yandex/).
 
-[**link to this project on github pages**](https://leannalight.github.io/sprint-12-mesto/) 
+### Начинаем разрабатывать API. Для этого настроили 3 роута:
 
-In this project I learned to work with Express and Node.js.
+| ЗАПРОС      |  ОТВЕТ               |
+| ------------- |:------------------:|
+| GET localhost:3000/users    | JSON-список всех пользователей    |
+| GET localhost:3000/cards     | JSON-список всех карточек |
+| GET localhost:3000/users/8340d0ec33270a25f2413b69  |JSON-пользователя с переданным после /users идентификатором. Если такого нет, API должно возвращать 404 статус ответа и JSON:{ "message": "Нет пользователя с таким id" }|
+| Несуществующий адрес    | { "message": "Запрашиваемый ресурс не найден"} |
 
-## Technologies used in the project:
+## Инструкция по установке:
+1. для клонирования используйте ```git clone https://github.com/leannalight/sprint-12-mesto```
+2. для переустановки пакетов ```npm i```.
+3. команда ```npm run start``` запускает сервер на ```localhost:3000```;
+4. команда ```npm run dev``` запускает сервер на ```localhost:3000 с хот релоудом```;
+5. адрес ```localhost:3000``` загружает фронтенд проекта [Место](https://leannalight.github.io/Mesto-project-Yandex/);
+
+## Что есть в этом проекте?
+- package.json;
+- .editorconfig;
+- .eslintrc, расширяющий конфигурацию airbnb-base, а также необходимые для работы линтера dev-зависимости;
+- .gitignore;
+- в ответ на запрос ```GET localhost:3000/users``` сервер вернёт JSON-объект из файла ```users.json```;
+- в ответ на запрос ```GET localhost:3000/cards``` сервер вернёт JSON-объект из файла ```cards.json```;
+- в ответ на запрос ```GET localhost:3000/users/8340d0ec33270a25f2413b69```, сервер вернёт JSON-объект пользователя с переданным после ```/users``` идентификатором;
+- если пользователя с запрошенным идентификатором нет, API должен возвращать ```404 статус``` ответа и ```JSON: { "message": "Нет пользователя с таким id" }```;
+- при запросе на несуществующий адрес, API должен возвращать ```404 статус``` ответа и ```JSON: { "message": "Запрашиваемый ресурс не найден" }```
+- для получения путей к файлам с данными используется модуль ```path```
+- при разных запросах сервер не падает
+
+## Стек технологий:
 Node.js,
 Express.js.
 HTML,
 CSS,
 Git
-
-## Instructions on how to deploy the project
-1. For cloning, use git clone https://github.com/leannalight/sprint-12-mesto
-2. Use npm i to reinstall packages.
-3. Use npm run dev to open the project on the local server.
-4. The npm run start command starts the server on localhost: 3000;
-5. The npm run dev command starts the server on localhost: 3000 with hot reload;
-6. In response to a GET request localhost: 3000 / users, the server will return a JSON object from the users.json file;
-7. In response to a GET request localhost: 3000 / cards, the server will return a JSON object from the cards.json file;
-8. In response to a GET request localhost: 3000 / users / 8340d0ec33270a25f2413b69, the server will return the user JSON object with the identifier passed after / users;
-9. If there is no user with the requested identifier, the API should return 404 response status and JSON: {"message": "There is no user with this id"};
-10. When requesting a non-existent address, the API should return 404 response status and JSON: {"message": "The requested resource was not found"}.
-
-- для получения путей к файлам с данными используется модуль path
-- при разных запросах сервер не падает
-
-## Инструкция по установке:
-1. Для клонирования используйте git clone https://github.com/leannalight/sprint-12-mesto
-2. Для переустановки пакетов используйте npm i.
-3. Для открытия проекта на локальном сервере используйте npm run dev.
-4. Команда npm run start запускает сервер на localhost:3000;
-5. Команда npm run dev запускает сервер на localhost:3000 с хот релоудом;
-6. В ответ на запрос GET localhost:3000/users сервер вернёт JSON-объект из файла users.json;
-7. В ответ на запрос GET localhost:3000/cards сервер вернёт JSON-объект из файла cards.json;
-8. В ответ на запрос GET localhost:3000/users/8340d0ec33270a25f2413b69, сервер вернёт JSON-объект пользователя с переданным после /users идентификатором;
-9. Если пользователя с запрошенным идентификатором нет, API должен возвращать 404 статус ответа и JSON: { "message": "Нет пользователя с таким id" };
-10. При запросе на несуществующий адрес, API должен возвращать 404 статус ответа и JSON: { "message": "Запрашиваемый ресурс не найден" }.
-
-- the path module is used to obtain paths to data files
-- the server does not crash at different requests 
